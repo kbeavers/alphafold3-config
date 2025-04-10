@@ -1,12 +1,12 @@
 #!/bin/bash
 #----------------------------------------------------------------------
-#SBATCH -J af3_example.slurm       # Job name
-#SBATCH -o af3_example.o%j         # Name of stdout output file
-#SBATCH -e af3_example.e%j         # Name of stderr error file
-#SBATCH -p gpu-a100-small          # Queue (partition) name
-#SBATCH -N 1                       # Total # of nodes
-#SBATCH -t 01:00:00                # Run time (hh:mm:ss)
-#SBATCH -A your-allocation         # Allocation name
+#SBATCH -J protein-ligand_complex.slurm       # Job name
+#SBATCH -o protein-ligand_complex.o%j         # Name of stdout output file
+#SBATCH -e protein-ligand_complex.e%j         # Name of stderr error file
+#SBATCH -p gpu-a100-small                     # Queue (partition) name
+#SBATCH -N 1                                  # Total # of nodes
+#SBATCH -t 01:00:00                           # Run time (hh:mm:ss)
+#SBATCH -A <your-allocation>                  # Allocation name
 #----------------------------------------------------------------------
 
 # Load required modules
@@ -28,7 +28,7 @@ apptainer exec \
      --bind $AF3_DATABASES_DIR:/root/public_databases \
      $AF3_IMAGE \
      python ${AF3_CODE_DIR}/run_alphafold.py \
-     --json_path=/root/af_input/protein_test.json \
+     --json_path=/root/af_input/protein-ligand_complex.json \
      --model_dir=/root/models \
      --db_dir=/root/public_databases \
      --output_dir=/root/af_output
