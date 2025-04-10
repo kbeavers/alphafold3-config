@@ -1,0 +1,14 @@
+{
+    "name": "Basic protein prediction",
+    "modelSeeds": [1],
+    "sequences": [
+      {
+        "protein": {
+          "id": "A",
+          "sequence": "MKWVTFISLLLLFSSAYSRGVFRRDAHKSEVAHRFKDLGEENFKALVLIAFAQYLQQCP"
+        }
+      }
+    ],
+    "dialect": "alphafold3",
+    "version": 1
+  }
