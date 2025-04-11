@@ -1,2 +1,2 @@
 # alphafold3-config
-Configuration files and setup instructions for running AlphaFold 3 on TACC systems
+Configuration files for running AlphaFold3 on TACC systems
