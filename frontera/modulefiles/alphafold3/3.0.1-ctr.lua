@@ -24,12 +24,12 @@ whatis("Keywords: Container, alphafold3")
 whatis("Description: Sets up the environment for AlphaFold3 using TACC's container image.")
 whatis("URL: https://github.com/google-deepmind/alphafold3")
 
-set_shell_function("run_alphafold.sh", "apptainer exec --nv /scratch2/projects/bio/alphafold3/3.0.1/image/alphafold_3.0.1.sif /scratch2/projects/bio/alphafold3/3.0.1/code/run_alphafold.sh $@","apptainer exec --nv /scratch2/projects/bio/alphafold3/3.0.1/image/alphafold_3.0.1.sif /scratch2/projects/bio/alphafold3/3.0.1/code/run_alphafold.sh $*")
+set_shell_function("run_alphafold.sh", "apptainer exec --nv /scratch2/projects/bio/alphafold3/3.0.1/image/alphafold3_3.0.1-rtx.sif /scratch2/projects/bio/alphafold3/3.0.1/code/run_alphafold.sh $@","apptainer exec --nv /scratch2/projects/bio/alphafold3/3.0.1/image/alphafold3_3.0.1-rtx.sif /scratch2/projects/bio/alphafold3/3.0.1/code/run_alphafold.sh $*")
 
 setenv("AF3_HOME", "/scratch2/projects/bio/alphafold3/3.0.1")
-setenv("AF3_IMAGE", "/scratch2/projects/bio/alphafold3/3.0.1/image/alphafold_3.0.1.sif")
+setenv("AF3_IMAGE", "/scratch2/projects/bio/alphafold3/3.0.1/image/alphafold3_3.0.1-rtx.sif")
 setenv("AF3_CODE_DIR", "/scratch2/projects/bio/alphafold3/3.0.1/code")
 setenv("AF3_DATABASES_DIR", "/scratch2/projects/bio/alphafold3/3.0.1/data")
 
 always_load("tacc-apptainer")
-try_load("cuda/12.6")
+try_load("cuda/12.2")
