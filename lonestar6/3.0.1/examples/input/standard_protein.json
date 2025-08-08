@@ -1,14 +1,14 @@
 {
-    "name": "Basic protein prediction",
+    "name": "UQCR11_Hsapiens",
     "modelSeeds": [1],
     "sequences": [
       {
         "protein": {
           "id": "A",
-          "sequence": "MKWVTFISLLLLFSSAYSRGVFRRDAHKSEVAHRFKDLGEENFKALVLIAFAQYLQQCP"
+          "sequence": "MVTRFLGPRYRELVKNWVPTAYTWGAVGAVGLVWATDWRLILDWVPYINGKFKKDN"
         }
       }
     ],
     "dialect": "alphafold3",
     "version": 1
-  }
+}
