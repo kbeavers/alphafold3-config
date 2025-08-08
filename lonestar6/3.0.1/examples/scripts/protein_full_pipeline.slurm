@@ -11,12 +11,12 @@
 
 # Load required modules
 module use /scratch/tacc/apps/bio/alphafold3/modulefiles
-module load alphafold3/3.0.1-ctr_updated.lua
+module load alphafold3/3.0.1-ctr.lua
 
 # Set input/output/model parameters directories
-export AF3_INPUT_DIR=$SCRATCH/AF3_TESTING/input
-export AF3_OUTPUT_DIR=$SCRATCH/AF3_TESTING/output
-export AF3_MODEL_PARAMETERS_DIR=$HOME/af3_weights
+export AF3_INPUT_DIR=$SCRATCH/input
+export AF3_OUTPUT_DIR=$SCRATCH/output
+export AF3_MODEL_PARAMETERS_DIR=$WORK/af3_parameters
 
 # Run AlphaFold3 using the shell function defined by the module
 run_alphafold3 --json_path=$AF3_INPUT_DIR/standard_protein.json
