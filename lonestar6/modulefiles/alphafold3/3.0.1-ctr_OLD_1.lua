@@ -1,5 +1,5 @@
 local help_message = [[
-This is a module file for the container tacc/alphafold3:3.0.1-f3e86f2, which exposes the
+This is a module file for the container tacc/alphafold:3.0.1-rtx, which exposes the
 following program:
 
  - run_alphafold3
@@ -25,7 +25,7 @@ tools it contains, please find supporting documentation at:
 help(help_message,"\\n")
 
 whatis("Name: alphafold3")
-whatis("Version: 3.0.1-f3e86f2")
+whatis("Version: 3.0.1")
 whatis("Category: Bioinformatics")
 whatis("Keywords: Container, AlphaFold3")
 whatis("Description: AlphaFold3 run environment using TACC container image.")
@@ -67,11 +67,10 @@ set_shell_function("run_alphafold3",
 
 -- Environment vars
 setenv("AF3_HOME", "/scratch/tacc/apps/bio/alphafold3/3.0.1")
-setenv("AF3_IMAGE", "/scratch/tacc/apps/bio/alphafold3/3.0.1/image/alphafold3_3.0.1-f3e86f2.sif")
+setenv("AF3_IMAGE", "/scratch/tacc/apps/bio/alphafold3/3.0.1/image/alphafold_3.0.1.sif")
 setenv("AF3_CODE_DIR", "/scratch/tacc/apps/bio/alphafold3/3.0.1/code")
 setenv("AF3_DATABASES_DIR", "/scratch/tacc/apps/bio/alphafold3/3.0.1/data")
-setenv("AF3_MODEL_PARAMETERS_DIR", "/scratch2/projects/bio/alphafold3/3.0.1/models")
 
 -- Load dependencies
 always_load("tacc-apptainer")
-try_load("cuda/12.8")
+try_load("cuda/12.2")
