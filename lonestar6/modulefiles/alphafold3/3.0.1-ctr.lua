@@ -74,4 +74,4 @@ setenv("AF3_MODEL_PARAMETERS_DIR", "/scratch2/projects/bio/alphafold3/3.0.1/mode
 
 -- Load dependencies
 always_load("tacc-apptainer")
-try_load("cuda/12.8")
+always_load("cuda/12.8")
