@@ -1,15 +1,8 @@
 local help_message = [[
-This is a module file for the container tacc/alphafold:3.0.1-rtx, which exposes the
+This is a module file for the container tacc/alphafold:3.0.1, which exposes the
 following program:
 
- - run_alphafold3
-
-This command launches AlphaFold3 inside an Apptainer container using GPU support.
-You must define the following variables before running:
- 
-   export AF3_INPUT_DIR=/your/json/dir
-   export AF3_OUTPUT_DIR=/your/output/dir
-   export AF3_MODEL_PARAMETERS_DIR=/your/model/parameters/dir
+ - run_alphafold
 
 This container was pulled from:
 
@@ -27,50 +20,16 @@ help(help_message,"\\n")
 whatis("Name: alphafold3")
 whatis("Version: 3.0.1")
 whatis("Category: Bioinformatics")
-whatis("Keywords: Container, AlphaFold3")
-whatis("Description: AlphaFold3 run environment using TACC container image.")
+whatis("Keywords: Container, alphafold3")
+whatis("Description: Sets up the environment for AlphaFold3 using TACC's container image.")
 whatis("URL: https://github.com/google-deepmind/alphafold3")
 
-set_shell_function("run_alphafold3",
-"apptainer exec --nv " ..
-"  --bind $AF3_INPUT_DIR:/root/af_input " ..
-"  --bind $AF3_OUTPUT_DIR:/root/af_output " ..
-"  --bind $AF3_MODEL_PARAMETERS_DIR:/root/models " ..
-"  --bind $AF3_DATABASES_DIR:/root/public_databases " ..
-"  $AF3_IMAGE " ..
-"  bash -c ' " ..
-"    args=(\"$@\"); " ..
-"    for i in \"${!args[@]}\"; do " ..
-"      if [[ ${args[$i]} == --json_path=* ]]; then " ..
-"        val=${args[$i]#--json_path=}; " ..
-"        args[$i]=--json_path=/root/af_input/$(basename \"$val\"); " ..
-"      fi; " ..
-"    done; " ..
-"    python $AF3_CODE_DIR/run_alphafold.py " ..
-"      --output_dir=/root/af_output " ..
-"      --model_dir=/root/models " ..
-"      --db_dir=/root/public_databases " ..
-"      \"${args[@]}\"; " ..
-"  ' -- \"$@\"",
--- C-shell version
-"apptainer exec --nv " ..
-"  --bind $AF3_INPUT_DIR:/root/af_input " ..
-"  --bind $AF3_OUTPUT_DIR:/root/af_output " ..
-"  --bind $AF3_MODEL_PARAMETERS_DIR:/root/models " ..
-"  --bind $AF3_DATABASES_DIR:/root/public_databases " ..
-"  $AF3_IMAGE " ..
-"  python $AF3_CODE_DIR/run_alphafold.py " ..
-"    --output_dir=/root/af_output " ..
-"    --model_dir=/root/models " ..
-"    --db_dir=/root/public_databases " ..
-"    $*")
+set_shell_function("run_alphafold.sh", "apptainer exec --nv /scratch/tacc/apps/bio/alphafold3/3.0.1/image/alphafold_3.0.1.sif /scratch/tacc/apps/bio/alphafold3/3.0.1/code/run_alphafold.sh $@","apptainer exec --nv /scratch/tacc/apps/bio/alphafold3/3.0.1/image/alphafold_3.0.1.sif /scratch/tacc/apps/bio/alphafold3/3.0.1/code/run_alphafold.sh $*")
 
--- Environment vars
 setenv("AF3_HOME", "/scratch/tacc/apps/bio/alphafold3/3.0.1")
 setenv("AF3_IMAGE", "/scratch/tacc/apps/bio/alphafold3/3.0.1/image/alphafold_3.0.1.sif")
 setenv("AF3_CODE_DIR", "/scratch/tacc/apps/bio/alphafold3/3.0.1/code")
 setenv("AF3_DATABASES_DIR", "/scratch/tacc/apps/bio/alphafold3/3.0.1/data")
 
--- Load dependencies
 always_load("tacc-apptainer")
 try_load("cuda/12.2")
