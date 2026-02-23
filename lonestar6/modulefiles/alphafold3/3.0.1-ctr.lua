@@ -39,7 +39,7 @@ setenv("AF3_DATABASES_DIR", "/scratch/tacc/apps/bio/alphafold3/3.0.1/data")
 
 -- Load dependencies
 always_load("tacc-apptainer")
-try_load("cuda/12.2")
+try_load("cuda/12.8")
 
 -- Shell function
 set_shell_function("run_alphafold3",
