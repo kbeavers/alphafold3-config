@@ -1,0 +1,20 @@
+{
+    "name": "Protein-ligand complex",
+    "modelSeeds": [1],
+    "sequences": [
+      {
+        "protein": {
+          "id": "A",
+          "sequence": "MKWVTFISLLL"
+        }
+      },
+      {
+        "ligand": {
+          "id": "L",
+          "ccdCodes": ["ATP"]
+        }
+      }
+    ],
+    "dialect": "alphafold3",
+    "version": 1
+  }
