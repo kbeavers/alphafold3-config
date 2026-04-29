@@ -1,0 +1,14 @@
+{
+  "name": "UQCR11_Hsapiens",
+  "modelSeeds": [1],
+  "sequences": [
+    {
+      "protein": {
+        "id": "A",
+        "sequence": "MVTRFLGPRYRELVKNWVPTAYTWGAVGAVGLVWATDWRLILDWVPYINGKFKKDN"
+      }
+    }
+  ],
+  "dialect": "alphafold3",
+  "version": 1
+}
