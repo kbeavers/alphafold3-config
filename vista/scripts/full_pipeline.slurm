@@ -2,9 +2,9 @@
 #
 # --- Example script for running the full MSA + inference pipeline
 #
-#SBATCH -J af3_full_pipeline
-#SBATCH -o af3_full_pipeline.%j.out
-#SBATCH -e af3_full_pipeline.%j.err
+#SBATCH -J full_pipeline
+#SBATCH -o full_pipeline.%j.out
+#SBATCH -e full_pipeline.%j.err
 #SBATCH -p gh
 #SBATCH -N 1
 #SBATCH -t 02:00:00

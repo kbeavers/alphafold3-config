@@ -2,9 +2,9 @@
 #
 # --- Example script for running the full MSA + inference pipeline on CPU-only node
 #
-#SBATCH -J af3_full_pipeline_cpu
-#SBATCH -o af3_full_pipeline_cpu.%j.out
-#SBATCH -e af3_full_pipeline_cpu.%j.err
+#SBATCH -J full_pipeline_cpu
+#SBATCH -o full_pipeline_cpu.%j.out
+#SBATCH -e full_pipeline_cpu.%j.err
 #SBATCH -p gg
 #SBATCH -N 1
 #SBATCH -t 06:00:00
